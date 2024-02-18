@@ -9,5 +9,5 @@ export type HoldingItem = {
 export type BottomSheetProps = {
   expanded: boolean;
   data: Array<HoldingItem>;
-  setBottomSheetState: Function;
+  setBottomSheetState: () => void;
 };

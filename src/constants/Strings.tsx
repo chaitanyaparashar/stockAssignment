@@ -1,5 +1,5 @@
 export const Strings = {
-  headerTitle: 'Holdings',
+  headerTitle: 'Upstox Holdings',
   rupees: (str: string) => `₹${str}`,
   profitAndLoss: 'Profit & Loss:',
   currentValue: 'Current Value: ',

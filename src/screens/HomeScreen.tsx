@@ -1,35 +1,37 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import useRequestHook from '../hooks/useRequestHook';
+import {useRequestHook} from '../hooks';
 import {URLS} from '../services/Urls';
-import CustomActivityIndicator from '../components/Loader';
-import {Colors} from '../constants/Colors';
-import Header from '../components/Header';
-import {Strings} from '../constants/Strings';
-import CustomText from '../components/CustomText';
+import {Loader, Header, CustomText, BottomSheet} from '../components';
+import {Colors, Strings, HoldingItem} from '../constants';
 import Utils from '../utils';
-import BottomSheet from '../components/BottomSheet';
-import {HoldingItem} from '../constants/types';
+
+type UserHoldingData = {
+  userHolding: HoldingItem[];
+};
 
 const HomeScreen = () => {
-  const [data, isLoading = false, error] = useRequestHook(URLS.GET_STOCKS_LIST);
-  const {userHolding = []}: {userHolding: Array<HoldingItem>} = data ?? {};
-  const [isExpanded, setExpanded] = useState(false);
+  const [data, isLoading = false, error] = useRequestHook<UserHoldingData>(
+    'GET',
+    URLS.GET_STOCKS_LIST,
+  );
+  const {userHolding = []}: {userHolding: Array<HoldingItem>} =
+    (data as UserHoldingData) ?? {};
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Holding list Item UI
   const renderItem = ({item}: {item: HoldingItem}) => {
+    const {symbol, ltp, avgPrice, quantity} = item;
     return (
       <View style={styles.parentRowStyle}>
         <View>
-          <CustomText customStyle={styles.symbolText}>{item.symbol}</CustomText>
-          <CustomText customStyle={styles.itemSubText}>
-            {item.quantity}
-          </CustomText>
+          <CustomText customStyle={styles.symbolText}>{symbol}</CustomText>
+          <CustomText customStyle={styles.itemSubText}>{quantity}</CustomText>
         </View>
         <View>
-          <CustomText>LTP: {Strings.rupees(`${item.ltp}`)}</CustomText>
+          <CustomText>LTP: {Strings.rupees(`${ltp}`)}</CustomText>
           <CustomText customStyle={styles.itemSubText}>
-            {Utils.getStockProfit(item.ltp, item.avgPrice, item.quantity)}
+            {Utils.getStockProfit(ltp, avgPrice, quantity)}
           </CustomText>
         </View>
       </View>
@@ -45,11 +47,11 @@ const HomeScreen = () => {
   };
 
   const toggleBottomSheetState = () => {
-    setExpanded(!isExpanded);
+    setIsExpanded(!isExpanded);
   };
 
   if (isLoading) {
-    return <CustomActivityIndicator color={Colors.BLACK} size="large" />;
+    return <Loader color={Colors.BLACK} size="large" />;
   }
 
   return (

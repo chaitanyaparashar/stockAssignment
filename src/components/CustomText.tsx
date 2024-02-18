@@ -1,10 +1,10 @@
-import {StyleProp, StyleSheet, Text, ViewStyle} from 'react-native';
+import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
 import React, {ReactNode} from 'react';
-import {Colors} from '../constants/Colors';
+import {Colors} from '../constants';
 
 type CustomTextProp = {
   children: ReactNode;
-  customStyle?: StyleProp<ViewStyle>;
+  customStyle?: StyleProp<TextStyle>;
 };
 
 const CustomText = (props: CustomTextProp) => {

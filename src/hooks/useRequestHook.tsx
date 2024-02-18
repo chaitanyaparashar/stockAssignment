@@ -2,15 +2,16 @@ import {useEffect, useState} from 'react';
 import apiClient from '../services/apiClient';
 
 // custom hook for handling the api requests.
-const useRequestHook = (url: string) => {
-  const [data, setData] = useState();
-  const [isLoading, setLoading] = useState(true);
+
+function useRequestHook<T>(methodType: string, url: string) {
+  const [data, setData] = useState<T>();
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    apiClient('GET', url)
+    apiClient(methodType, url)
       .then(data => {
-        setData(data);
+        setData(data as T);
       })
       .catch(error => {
         setError(error);
@@ -20,7 +21,7 @@ const useRequestHook = (url: string) => {
       });
   }, [url]);
 
-  return [data, isLoading, error];
-};
+  return [data, loading, error];
+}
 
 export default useRequestHook;

@@ -6,13 +6,13 @@ import {
 } from 'react-native';
 import React from 'react';
 
-type CustomActivityIndicatorProp = {
+type LoaderProp = {
   customStyle?: StyleProp<ViewStyle>;
   size: 'small' | 'large';
   color: string;
 };
 
-const CustomActivityIndicator = (props: CustomActivityIndicatorProp) => {
+const Loader = (props: LoaderProp) => {
   const {customStyle = {}, size = 'large', color} = props;
 
   return (
@@ -24,7 +24,7 @@ const CustomActivityIndicator = (props: CustomActivityIndicatorProp) => {
   );
 };
 
-export default CustomActivityIndicator;
+export default Loader;
 
 const styles = StyleSheet.create({
   loader: {
