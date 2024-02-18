@@ -59,21 +59,8 @@ Now that you have successfully run the app, let's modify it.
 
 You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+### ScreenShots
+![Simulator Screenshot - iPhone 15 Pro - 2024-02-18 at 12 01 03](https://github.com/chaitanyaparashar/stockAssignment/assets/15787164/560f9afa-84c9-4ea7-9136-e10a1d6f14e7)
+![Simulator Screenshot - iPhone 15 Pro - 2024-02-18 at 12 01 00](https://github.com/chaitanyaparashar/stockAssignment/assets/15787164/819dc028-3f85-472c-92aa-97b00a00f651)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
